@@ -43,7 +43,8 @@ $contenido = "
                     <th scope="col">Herramientas</th>
                 </tr>
             </thead>
-            <tbody>';
+            <tbody> 
+            ';
 
     $sql = "SELECT nombre, nombre_usuario, tipo_usuario, estado FROM clientes";
 
@@ -78,7 +79,7 @@ $contenido = "
                     <td>' . $user_type . '</td>
                     <td>Ola</td>
                 </tr>';
-            
+
             $counter++;
         }
     } else {
