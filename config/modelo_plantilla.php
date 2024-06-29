@@ -28,30 +28,28 @@ class plantilla
     {
         return '
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="'.$origen.'/usuarios/controlador_usuarios.php">Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Clientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Herramientas</a>
-                </li>
-                </ul>
-            </div>
-            </div>
-        </nav> 
-
-
-            ';
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+                        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" aria-current="page" href="' . $origen . '/usuarios/controlador_usuarios.php">Usuarios</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" aria-current="page" href="#">Clientes</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" aria-current="page" href="#">Herramientas</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>';
     }
+    
 
     public function obtenerMain($origen, $contenido)
     {
