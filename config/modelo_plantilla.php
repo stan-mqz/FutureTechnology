@@ -18,8 +18,7 @@ class plantilla
     {
         return '
         <header>
-            <a href="'.$origen.'/index.php"><img src="' . $origen . '/img/logo.jpeg" alt="Logo de la empresa"></a>
-             <h1 class="texto">Future Technology</h1>
+
         </header>
         ';
     }
@@ -33,6 +32,9 @@ class plantilla
                         aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                     <a class="navbar-brand" href="' . $origen . '/index.php">
+                        <img src="' . $origen . '/img/logo.jpeg" alt="" width="50px" class="d-inline-block align-text-center">
+                    </a>
                     <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo03">
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item mx-3">

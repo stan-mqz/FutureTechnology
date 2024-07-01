@@ -16,7 +16,14 @@
 
 <body>
 
-
+<?php
+    $contenido = "
+    <center>
+        <br><br><br><br><br>
+        <h1>Hello world</h1>
+        <br><br><br><br><br>
+    </center>";
+    ?>
 
 <?php echo $modelo->obtenerHeader($origen); ?>
 <?php echo $modelo->obtenerNav($origen); ?>
