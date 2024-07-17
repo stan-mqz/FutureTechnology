@@ -59,6 +59,9 @@ class plantilla
         <main>
             <section>
                 ' . $contenido . '
+
+                   
+                  
             </section>
         </main>
         ';
