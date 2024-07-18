@@ -11,7 +11,7 @@ $contenido = "
 </head>
 
 <body>
-    <?php
+<?php
     $criterio = "";
 
     if (isset($_GET["criterio"])) {
@@ -21,8 +21,7 @@ $contenido = "
     $user_type = "";
     $user_status = "";
     $contenido .= '
-    
-      <!--  <div>
+        <div>
         <nav class="navbar navbar-light bg-white m-3">
             <div class="container-fluid justify-content-between">
                 <h3>Tabla Usuarios</h3>
@@ -44,28 +43,7 @@ $contenido = "
                     <th scope="col">Herramientas</th>
                 </tr>
             </thead>
-            <tbody> -->
-
-             <div class="row d-flex flex-wrap container-fluid">
-                    <div class=" col-md-1 col-sm-1 col-1">
-                        #
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-3 ">
-                        name
-                    </div>
-                    <div class="col-md-2 col-sm-2 col-3 ">
-                        username
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-3 ">
-                        Type
-                    </div>  
-                    <div class="col-md-2 col-sm-3 col-2">
-                        Status
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-12 bg-light">
-                        Tools
-                    </div>
-                </div>
+            <tbody> 
             ';
 
     $sql = "SELECT nombre, nombre_usuario, tipo_usuario, estado FROM clientes";
@@ -93,52 +71,31 @@ $contenido = "
             }
 
             $contenido .= '
-            <!--    <tr>
+                <tr>
                     <th scope="row">' . $counter . '</th>
                     <td>' . $fila["nombre"] . '</td>
                     <td>' . $fila["nombre_usuario"] . '</td>
                     <td>' . $user_status . '</td>
                     <td>' . $user_type . '</td>
-                    <td>Ola</td>
-                </tr> -->
-                
- <div class="row d-flex flex-wrap container-fluid" style="border:black solid 1px;">
-                    <div class="col-md-1 col-sm-1 col-1 bg-dark" style="color: white;">
-                        ' . $counter . '
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-3 ">
-                        ' . $fila["nombre"] . '
-                    </div>
-                    <div class="col-md-2 col-sm-2 col-3 ">
-                        ' . $fila["nombre_usuario"] . '
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-3 ">
-                        ' . $user_status . '
-                    </div>  
-                    <div class="col-md-2 col-sm-3 col-2 ">
-                        ' . $user_type . '
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-12 bg-light">
-                        Tools
-                    </div>
-                </div>
+                    <td>
+                    <a href="controlador_agregar.php">
 
-            ';
+                        <button type="button" class="btn btn-secondary">Nuevo</button>
+                        <button type="button" class="btn btn-secondary">Eliminar</button>
+                        
+                    </a>
+              
+                    </td>
+                </tr>';
 
-            $counter = $counter + 1;
+            $counter++;
         }
     } else {
         $contenido .= "
-        <tr>
-            <td colspan='6' style='text-align: left;'>NO SE ENCONTRARON REGISTROS</td>
-        </tr>
-        ";
+                <tr>
+                    <td colspan='5' style='text-align: left;'>NO SE ENCONTRARON REGISTROS</td>
+                </tr>";
     }
-
-    $contenido .= "
-        </center>
-            </div>";
-    
 
     $contenido .= '
             </tbody>

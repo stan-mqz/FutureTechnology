@@ -31,6 +31,12 @@ h1 {
     box-sizing: inherit;
 }
 
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
 
 
 footer {
