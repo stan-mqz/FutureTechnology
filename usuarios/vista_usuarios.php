@@ -26,9 +26,18 @@ $contenido = "";
             echo"
                 <script>
                     alert('Borrado');
-                    location.replace(". $_SERVER["PHP_SELF"] .")
-</script>
+                    location.replace('" . $_SERVER["PHP_SELF"] . "');
+                </script>
+            ";
+        }
+    }
 
+    if (isset($_GET["a"]) && isset($_GET["idOnOff"])) {
+        if ($conexion->consultar(" UPDATE clientes SET estado='". $_GET["a"]."' WHERE id ='".  $_GET["idOnOff"]."' ")) {
+            echo"
+                <script>
+                    location.replace('" . $_SERVER["PHP_SELF"] . "');
+                </script>
             ";
         }
     }
@@ -131,20 +140,37 @@ $contenido = "";
                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                             </svg>
                         </button>
-                    </a>
+                    </a>';
+
+                    if($fila["estado"] == 0){
+                    
+                $contenido .='
+                <button type="button" class="btn btn-secondary" onclick="location.replace(\'' . $_SERVER["PHP_SELF"] . '?a=1&&idOnOff=' . $fila['id'] . '\');">
+                        <i class="bi bi-toggle-off"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggle-off" viewBox="0 0 16 16">
+                        <path d="M11 4a4 4 0 0 1 0 8H8a5 5 0 0 0 2-4 5 5 0 0 0-2-4zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8M0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5"/>
+                        </svg>
+                </button>';
+
+                    } else {
+
+                        $contenido .='
+
+                        <button type="button" class="btn btn-secondary" onclick="location.replace(\'' . $_SERVER["PHP_SELF"] . '?a=0&&idOnOff=' . $fila['id'] . '\');"">
+                            <i class="bi bi-toggle-on"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggle-on" viewBox="0 0 16 16">
+                                <path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8"/>
+                            </svg>
+                        </button>';
+                    }
+
+                    $contenido .='
 
                     <button type="button" class="btn btn-secondary" onclick="eliminar(\''.$fila["id"].'\');">
                         <i class="bi bi-trash3"></i>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                             <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
                         </svg>  
-                    </button>
-
-                    <button type="button" class="btn btn-secondary">
-                        <i class="bi bi-toggle-on"></i>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggle-on" viewBox="0 0 16 16">
-                            <path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8"/>
-                        </svg>
                     </button>
                 </div>
             </div>';
