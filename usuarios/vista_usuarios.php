@@ -57,7 +57,7 @@ $contenido = '
             </div>
         </div>';
 
-$sql = "SELECT nombre, nombre_usuario, tipo_usuario, estado FROM clientes";
+$sql = "SELECT id, nombre, nombre_usuario, tipo_usuario, estado FROM clientes";
 
 if ($criterio != "") {
     $sql .= " WHERE clientes.nombre LIKE '%" . $criterio . "%'
@@ -98,8 +98,10 @@ if (mysqli_num_rows($query) > 0) {
                 ' . $user_type . '
             </div>
             <div class="col-md-3 col-sm-12 col-6 bg-light">
-                <button type="button" class="btn btn-secondary">Eliminar</button>
+            <a href="controlador_agregar.php?idU='.$fila["id"].'">
                 <button type="button" class="btn btn-secondary">Actualizar</button>
+            </a>
+                <button type="button" class="btn btn-secondary">Eliminar</button>
                 <button type="button" class="btn btn-secondary">Estado</button>
             </div>
         </div>';
