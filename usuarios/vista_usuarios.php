@@ -12,98 +12,125 @@ $contenido = "
 
 <body>
 <?php
+    
+
     $criterio = "";
 
-    if (isset($_GET["criterio"])) {
+    if(isset($_GET["criterio"])){
         $criterio = $_GET["criterio"];
     }
 
     $user_type = "";
     $user_status = "";
-    $contenido .= '
-        <div>
+    $contenido = '
+    <div class="container-fluid">
         <nav class="navbar navbar-light bg-white m-3">
-            <div class="container-fluid justify-content-between">
-                <h3>Tabla Usuarios</h3>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="criterio" value="' . $criterio . '" style="width: 250px;" autofocus>
-                    <button class="btn btn-outline-success" type="submit" value="Buscar">Search</button>
-                </form>
+            <div class="container-fluid justify-content-betweeng">
+            <h3>Tabla Users</h3>
+            <form class="d-flex  ">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="criterio" value= "'. $criterio .'" style="width: 250px;" autofocus>
+                <button class="btn btn-outline-success" type="submit"  value="Buscar" >Search</button>
+            </form>
             </div>
         </nav>
         
-        <table class="table table-bordered table-ligth table-responsive">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Nombre de usuario</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Herramientas</th>
-                </tr>
-            </thead>
-            <tbody> 
-            ';
+        <center>
+                
+                <div class="row d-flex flex-wrap container-fluid">
+                    <div class=" col-md-1 col-sm-1 col-1">
+                        #
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-3 ">
+                        Nombre
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-4 ">
+                        Nombre de usuario
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-4 ">
+                        Estado
+                    </div>  
+                    <div class="col-md-2 col-sm-3 col-6">
+                        Tipo
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-6">
+                        Herramientas
+                    </div>
+                </div>
+                ';
 
-    $sql = "SELECT nombre, nombre_usuario, tipo_usuario, estado FROM clientes";
+    $sql = " SELECT nombre, nombre_usuario, tipo_usuario, estado FROM clientes ";
 
-    if ($criterio != "") {
-        $sql .= " WHERE nombre LIKE '%" . $criterio . "%' OR nombre_usuario LIKE '%" . $criterio . "%'";
+    if($criterio!=""){
+        $sql .= "where clientes.nombre like '%". $criterio ."%'
+            OR  clientes.nombre_usuario like '%". $criterio ."%'";
     }
 
     $query = $conexion->consultar($sql);
 
-    if (mysqli_num_rows($query) > 0) {
+    if(mysqli_num_rows($query)>0){
         $counter = 1;
         while ($fila = mysqli_fetch_assoc($query)) {
 
-            if ($fila["tipo_usuario"] == "1") {
+            if ($fila["tipo_usuario"] == 1) {
                 $user_type = "Admin";
-            } else if ($fila["tipo_usuario"] == "0") {
-                $user_type = "Operativo";
+            } else if ($fila["tipo_usuario"] == 0) {
+                $user_type = "Operative";
             }
 
-            if ($fila["estado"] == "1") {
+            if ($fila["estado"] == 1) {
                 $user_status = "Activo";
-            } else if ($fila["estado"] == "0") {
+            } else if ($fila["estado"] == 0) {
                 $user_status = "Inactivo";
             }
-
             $contenido .= '
-                <tr>
-                    <th scope="row">' . $counter . '</th>
-                    <td>' . $fila["nombre"] . '</td>
-                    <td>' . $fila["nombre_usuario"] . '</td>
-                    <td>' . $user_status . '</td>
-                    <td>' . $user_type . '</td>
-                    <td>
-                    <a href="controlador_agregar.php">
+            
+                <div class="row d-flex flex-wrap container-fluid" style=" padding:;">
+                    <div class="col-md-1 col-sm-1 col-1 bg-dark" style="color: white;">
+                        ' . $counter . '
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-3 ">
+                        ' . $fila["nombre"] . '
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-4 ">
+                        ' . $fila["nombre_usuario"] . '
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-4 ">
+                        ' . $user_status . '
+                    </div>  
+                    <div class="col-md-2 col-sm-3 col-6 ">
+                    ' . $user_type . '
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-6 bg-light">
+                               
+                <a href="controlador_agregar.php">
 
-                        <button type="button" class="btn btn-secondary">Nuevo</button>
-                        <button type="button" class="btn btn-secondary">Eliminar</button>
-                        
-                    </a>
-              
+                    <button type="button" class="btn btn-secondary">Nuevo</button>
+                    <button type="button" class="btn btn-secondary">Eliminar</button>
+                
+                </a>
+        
                     </td>
-                </tr>';
+                    </div>
+                </div>
 
-            $counter++;
+            ';
+
+            $counter = $counter + 1;
         }
     } else {
         $contenido .= "
-                <tr>
-                    <td colspan='5' style='text-align: left;'>NO SE ENCONTRARON REGISTROS</td>
-                </tr>";
+        <tr>
+            <td colspan='6' style='text-align: left;'>NO SE ENCONTRARON REGISTROS</td>
+        </tr>
+        ";
     }
 
-    $contenido .= '
-            </tbody>
-        </table>
-    </div>';
-
+    $contenido .= "
+        </center>
+            </div>
+        ";
     ?>
-
+    
     <?php echo $modelo->obtenerHeader($origen); ?>
     <?php echo $modelo->obtenerNav($origen); ?>
     <?php echo $modelo->obtenerMain($origen, $contenido); ?>

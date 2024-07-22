@@ -3468,7 +3468,7 @@ textarea.form-control-lg {
   min-width: var(--bs-dropdown-min-width);
   padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
   margin: 0;
-  font-size: 15px;
+  font-size: 13px;
   color: var(--bs-dropdown-color);
   text-align: left;
   list-style: none;
