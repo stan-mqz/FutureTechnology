@@ -121,11 +121,25 @@
   alert('Esta intentando modificar')
 </script>
 
+<script>
+  function eliminar(id){
+
+    if (confirm("seguro?")) {
+      location.replace('$_SERVER[PHP_SELF]?uid=' + id);
+    }
+  }
+</script>
+
 <script src="/js/bootstrap.js"></script>
 
 <script>
   alert("Registro exitoso")
   window.top.location.replace('controlador_usuario');
+</script>
+
+<script>
+  alert("Borrado");
+  location.replace()
 </script>
 
 </html>
