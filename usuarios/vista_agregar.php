@@ -26,7 +26,7 @@ $contenido = '
   </div>
 
 
-          <li><a>' .$cmbNiveles. '</a></li>
+          <li><a class="">' .$cmbNiveles. '</a></li>
   </div>
 
   
