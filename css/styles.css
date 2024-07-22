@@ -40,14 +40,16 @@ h1 {
 
 
 footer {
-    padding-left: 20px;
-    text-align: center;
-    width: 80%;
-    position: fixed;
-    bottom: 0;
+    position: absolute; /* o absolute */
+    margin: 10px auto;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%; /* o el valor deseado como 80% */
+    padding-left: 20px;
+    text-align: center;
+    box-sizing: border-box; /* Para incluir el padding en el width */
 }
+
 
 
 

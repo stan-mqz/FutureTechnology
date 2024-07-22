@@ -12,60 +12,39 @@ $contenido = "
 
 <body>
 <?php
-   
-    $contenido = '
 
-
-
-    
-    
-<form class="formulario">
+$contenido = '
+<form method="POST" action="' . $_SERVER['PHP_SELF'] . '" enctype="multipart/form-data" onsubmit="" class="formulario">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Nombre</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input type="text" name="nombre" class="form-control" id="nombre">
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Nombre de usuario</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="nombre_usuario" class="form-label">Nombre de usuario</label>
+    <input type="text" name="usuario" class="form-control" id="nombre_usuario">
   </div>
 
-  <div class="mb-3">
-    <div class ="botond">
-    <label for="exampleInputEmail1" class="form-label">Tipo</label>
-    <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Elegir Tipo
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Administrador</a></li>
-    <li><a class="dropdown-item" href="#">Operativo</a></li>
-    </div>
-  </ul>
-</div>
-    
+
+          <li><a>' .$cmbNiveles. '</a></li>
   </div>
+
   
-  </div>
-
-    <div class="botones__formulario">
-    <button type="button" class="btn btn-secondary">Guardar</button>
-    
+  
+  <div class="botones__formulario">
+    <button type="submit" class="btn btn-secondary">Guardar</button>
     <a href="controlador_usuarios.php">
-        <button type="button" class="btn btn-secondary">Cancelar</button>
+      <button type="button" class="btn btn-secondary">Cancelar</button>
     </a>
-    
-    
-    </div>
-
+  </div>
 </form>
-    
+
 <!-- <script src="/js/popper.min.js"></script>
 <script src="/js/bootstrap.js"></script> -->
-    
-    ';
+';
 
-    ?>
+?>
+
 
     <?php echo $modelo->obtenerHeader($origen); ?>
     <?php echo $modelo->obtenerNav($origen); ?>
