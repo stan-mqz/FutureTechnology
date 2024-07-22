@@ -77,7 +77,7 @@ class plantilla
                 Proyecto Tercero de Software 2024
             </h3>
 
-        <!-- <script src="'. $origen .'/js/popper.min.js"></script> -->
+         <script src="'. $origen .'/js/popper.min.js"></script> 
          <!--  <script src="'. $origen .'/js/bootstrap.bundle.js"></script> -->
         <script src="'. $origen .'/js/bootstrap.min.js"></script>
 

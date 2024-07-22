@@ -14,6 +14,9 @@ $contenido = "
 <?php
    
     $contenido = '
+
+
+
     
     
 <form class="formulario">
@@ -28,8 +31,18 @@ $contenido = "
   </div>
 
   <div class="mb-3">
+    <div class ="botond">
     <label for="exampleInputEmail1" class="form-label">Tipo</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Elegir Tipo
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Administrador</a></li>
+    <li><a class="dropdown-item" href="#">Operativo</a></li>
+    </div>
+  </ul>
+</div>
     
   </div>
   
@@ -47,6 +60,8 @@ $contenido = "
 
 </form>
     
+<!-- <script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.js"></script> -->
     
     ';
 

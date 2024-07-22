@@ -3078,8 +3078,8 @@ textarea.form-control-lg {
 }
 
 .btn-secondary {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #000;
+  --bs-btn-color: #000;
+  --bs-btn-bg: #ffff;
   --bs-btn-border-color: #6c757d;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #5c636a;
@@ -3093,6 +3093,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-bg: #6c757d;
   --bs-btn-disabled-border-color: #6c757d;
   font-size: 15px;
+
 }
 
 .btn-success {
@@ -3467,7 +3468,7 @@ textarea.form-control-lg {
   min-width: var(--bs-dropdown-min-width);
   padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
   margin: 0;
-  font-size: var(--bs-dropdown-font-size);
+  font-size: 15px;
   color: var(--bs-dropdown-color);
   text-align: left;
   list-style: none;
@@ -3475,6 +3476,7 @@ textarea.form-control-lg {
   background-clip: padding-box;
   border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
   border-radius: var(--bs-dropdown-border-radius);
+  width: 100%;
 }
 .dropdown-menu[data-bs-popper] {
   top: 100%;
